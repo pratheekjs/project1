@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Tracker</title>
+    <h1>Student Tracker</h1>
+    <style>
+        h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: center;
+            color: rgb(8, 12, 34);
+            font-size: 50px;
+        }
+
+        body {
+            background-color: #1e2537;
+            color: #352020;
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            background-color: #082844;
+            color: #f8f8f8;
+            margin-top: 0px;
+            padding-top: 0;
+        }
+
+        li a {
+            color: #9b4f4f;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #4d4d4d;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+            font-family: sans-serif;
+            color: #000;
+        }
+
+        li a {
+            display: block;
+            color: rgb(122, 252, 0);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-size: 20px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var time = now.toLocaleTimeString();
+            var date = now.toLocaleDateString();
+            document.getElementById("current-time").innerHTML = time;
+            document.getElementById("current-date").innerHTML = date;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</head>
+
+<body>
+    <div
+        style="position:absolute; top:3px; right: 0; padding: 10px; margin-bottom:30px;margin-right:15px;background-color: #167469; border: 1px solid #ccc;">
+        <span
+            style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 15px;  color: white;"
+            id="current-time"><br></span>
+        <span style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-size: 14px;  color: white;"
+            id="current-date"></span>
+    </div>
+
+    <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/addstudent">Add Student</a></li>
+        <li><a href="/analytics">Data Analytics</a></li>
+        <li style="float:right"><a class="active" href="#about">About</a></li>
+    </ul>
+
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>

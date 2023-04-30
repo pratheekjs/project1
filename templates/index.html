@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% set current_time = now().strftime('%H:%M:%S') %}
+{% set current_date = now().strftime('%Y-%m-%d') %}
+{% set table_background_color = '#0B536C' %}
+
+{% block content %}
+<div style="margin: 0 auto; width: 75%;">
+  <style>
+    table {
+      border-collapse: collapse;
+      border-color: #353740;
+      width: 100%;
+      border-radius: 100px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 100px;
+      padding: 3px;
+      background-color: black;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      border: 5px solid #4d1414;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+
+    }
+
+    th {
+      background-color: #0c090e;
+    }
+
+    td {
+      background-color: rgb(21, 20, 24);
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Student Image</th>
+        <th>Name</th>
+        <th>Register Number</th>
+        <th>Programme</th>
+        <th>Course</th>
+        <th>Batch</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students[::-1] %}
+      <tr>
+        <td><img src="{{ url_for('static', filename='image_folder/' + student.Name + '.jpeg') }}"></td>
+        <td>{{ student.Name }}</td>
+        <td>{{ student.Register_no }}</td>
+        <td>{{ student.Programme }}</td>
+        <td>{{ student.Course }}</td>
+        <td>{{ student.Batch }}</td>
+        <td>{{ student.Time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

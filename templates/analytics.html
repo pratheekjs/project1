@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Analytics</h1>
+
+<form method="POST">
+    <label for="filter_col">Filter by:</label>
+    <select name="filter_col" id="filter_col">
+        <option value="programme" {% if filter_col=='programme' %}selected{% endif %}>Programme</option>
+        <option value="course" {% if filter_col=='course' %}selected{% endif %}>Course</option>
+        <option value="year" {% if filter_col=='year' %}selected{% endif %}>Year</option>
+    </select>
+    <input type="text" name="filter_val" value="{{ filter_val }}">
+    <button type="submit">Filter</button>
+</form>
+
+<div id="pie-chart">
+    {{ pie_chart|safe }}
+</div>
+{% endblock %}

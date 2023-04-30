@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    form {
+        font-weight: 450;
+        font-size: 12;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 5px solid #28ea0a;
+        background-color: #001f2b;
+        padding: 20px;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+
+
+    label {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        font-weight: 19px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+    }
+
+    input[type="text"],
+    select {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        width: 300px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 40px;
+    }
+</style>
+
+<h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:30px;color:rgb(255, 255, 255)">Add Student </h2>
+<form action="/addstudent" method="POST" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input type="text" id=name" name="name" required>
+
+    <label for="reg_num">Register Number</label>
+    <input type="text" id="reg_num" name="reg_num" required>
+
+    <label for="programme">Programme</label>
+    <select id="programme" name="programme">
+        <option value="B.Tech">B.Tech</option>
+        <option value="M.Tech">M.Tech</option>
+        <option value="BSc">BSc</option>
+    </select>
+
+    <label for="course">Course</label>
+    <input type="text" id="course" name="course" required>
+
+    <label for="year">Year</label>
+    <select id="year" name="year">
+        <option value="First Year">First Year</option>
+        <option value="Second Year">Second Year</option>
+        <option value="Third Year">Third Year</option>
+        <option value="Fourth Year">Fourth Year</option>
+    </select>
+
+    <label for="image" style="margin-bottom: 2px;">Image</label>
+    <p style="color: rgb(125, 21, 21); border: 5px;
+    ;">Please ensure that the image is saved in 'Name.jpeg' format.</p>
+    <input type="file" id="image" name="image" accept="image/*" required>
+
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
